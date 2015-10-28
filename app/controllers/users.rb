@@ -35,6 +35,7 @@ post '/login' do
 end
 
 get '/users/:id' do
+  byebug
   @user=User.find(params[:id])
   erb :"users/show"
 end
