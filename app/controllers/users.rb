@@ -9,15 +9,15 @@ post '/signup' do
   @user = User.new(params[:user])
 
   if @user.save
-    redirect '/login'
+    redirect '/'
   else
     @error_msg = "Bummer, Sign up failed"
     erb :"static/index"
   end
 end
 
-
 # get '/login' do
+#   byebug
 #   @user = User.find(session[:user_id])
 #   erb :"static/index"
 # end
@@ -36,11 +36,11 @@ post '/login' do
 end
 
 get '/users/:id' do
-  byebug
   @user=User.find(params[:id])
   erb :"users/show"
 end
 
 get '/logout' do
-
+  session[:username] = nil
+  erb :"static/index"
 end

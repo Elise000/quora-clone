@@ -1,4 +1,12 @@
-<p>Welcome<%= @user.name%></p>
+<p>Welcome, <%= @user.name%></p>
 <!-- <p>Askies members since<=%@user.created_at%></p> -->
+<p>Ask a question</p>
+<form method="post" action="/questions">
+  <input type="text" placeholder="Your Question Here" name="question[description]"></br>
+  <input type="submit" value="Shoot">
+</form>
 
+<form action="/users/<%=@user.id%>/questions", method="get">
+	<input type="submit" value="My Questions">
+</form>
 

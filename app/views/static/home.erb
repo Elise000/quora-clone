@@ -1,3 +1,14 @@
-<p>list questions_index here</p>
+<% if @user %>
+	<a href='/users/<%= @user.id %>'><button>My Profile</button></a>	
+<% end %>
 
-<a href='/users/<%= @user.id %>'><button>Profile</button></a>
+<form action="/logout", method="get">
+	<input type="submit" value="Logout">
+</form>
+
+
+<h1>list questions_index here</h1>
+
+<% Question.find_each do |q| %>
+	<p><%= q.description %></p>
+<%end%>
