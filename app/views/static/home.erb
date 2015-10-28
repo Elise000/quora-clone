@@ -9,6 +9,7 @@
 
 <h1>list questions_index here</h1>
 
-<% Question.find_each do |q| %>
+<% @questions.each do |q| %>
 	<p><%= q.description %></p>
+	<p>User: <%= q.user.name %></p>
 <%end%>
