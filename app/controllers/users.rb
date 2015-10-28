@@ -1,9 +1,9 @@
 require 'byebug'
 enable :sessions
 
-get '/signup' do
-  erb :"static/index"
-end
+# get '/signup' do
+#   erb :"static/index"
+# end
 
 post '/signup' do
   @user = User.new(params[:user])
@@ -17,17 +17,18 @@ post '/signup' do
 end
 
 
-get '/login' do
-  @user = User.find(session[:user_id])
-  erb :"static/index"
-end
+# get '/login' do
+#   @user = User.find(session[:user_id])
+#   erb :"static/index"
+# end
 
 post '/login' do
+  # byebug
   @user = User.authenticate(params[:user][:email], params[:user][:password])
+
   if @user
     session[:user_id] = @user.id
     erb :"static/home"
-
   else
     @message = "Invalid User"
     redirect "/login"
