@@ -18,23 +18,24 @@ end
 
 
 get '/login' do
-
+  @user = User.find(session[:user_id])
   erb :"static/index"
 end
 
 post '/login' do
-  @u = User.authenticate(params[:user][:email], params[:user][:password])
-  if @u.nil?
-    @message = "Invalid User"
-  else
-    session[:user_id] = @u.id
+  @user = User.authenticate(params[:user][:email], params[:user][:password])
+  if @user
+    session[:user_id] = @user.id
     erb :"static/home"
+
+  else
+    @message = "Invalid User"
+    redirect "/login"
   end
 end
 
 get '/users/:id' do
   @user=User.find(params[:id])
-  byebug
   erb :"users/show"
 end
 

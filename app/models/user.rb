@@ -11,9 +11,9 @@ class User < ActiveRecord::Base
   validates :password, presence: true
 
   def self.authenticate(email, password)
-    @u= User.find_by(:email => email)
-    if @u && @u.password == password
-      @u
+    @user= User.find_by(:email => email)
+    if @user && @user.password == password
+      @user
     else
       nil
     end
