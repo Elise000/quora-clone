@@ -1,3 +1,8 @@
+
+
 get '/' do
-  erb :"static/index"
+
+    erb :"static/index"
+  # end
 end
+

@@ -1,2 +1,22 @@
-<h1>Hello World</h1>
-<p>See Me in views/static/index.html.erb</p>
+<h1>Welcome to Askies!</h1>
+<p>Ask anything you wish</p>
+
+<form method="post" action="/signup">
+  <input type="text" placeholder="Name" name="user[name]"></br>
+  <input type="text" placeholder="Email" name="user[email]"></br>
+  <input type="password" placeholder="Password" name="user[password]"></br>
+  <input type="submit" value="Sign up">
+</form>
+
+<% if @error_msg %>
+<p><%= @error_msg %> </p>
+<% end %>
+
+<form method="post" action="/login">
+  <input type="text" placeholder="Name" name="user[name]"></br>
+  <input type="text" placeholder="Email" name="user[email]"></br>
+  <input type="password" placeholder="Password" name="user[password]"></br>
+  <input type="submit" value="Login">
+</form>
+
+
