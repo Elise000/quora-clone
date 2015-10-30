@@ -28,19 +28,21 @@ post '/login' do
 
   if @user
     session[:user_id] = @user.id
-    erb :"static/home"
+    redirect "/questions"
   else
-    @message = "Invalid User"
-    redirect "/login"
+    @error_msg = "Invalid User"
+    erb :"static/index"
   end
 end
 
 get '/users/:id' do
   @user=User.find(params[:id])
+  @questions = @user.questions.all
+  @answers = @user.answers.all
   erb :"users/show"
 end
 
 get '/logout' do
-  session[:username] = nil
+  session[:user_id] = nil
   erb :"static/index"
 end

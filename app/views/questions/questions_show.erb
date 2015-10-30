@@ -1,0 +1,49 @@
+<div class="container">
+
+	<h3>Q: <%=@question.description%></h3>
+
+	<h5>This questions have <%=@answers.count%> answers</h5>
+
+	<p>Donate your answer here</p>
+
+	<form id="answer-form" method="post" action="/questions/<%=@question.id%>/answers">
+	  <input type="text" placeholder="Answer" name="answer[description]" id="answer-text"></br>
+	  <input id="answer-button" type="submit" value="Shoot">
+	</form>
+
+	<% if @answers %>
+		<% @answers.each do |ans|%>
+			<div class="row">
+				<div class = "col-md-6">
+					<ul class="list-inline">
+						<li><%= ans.description %></li>
+							<li>
+								<p>User: <a href= "/users/<%=ans.user.id%>/questions"><%=ans.user.name%></a>
+								</p>
+							</li>
+					</ul>
+					<dd>
+						<ul class="list-inline">
+							<li>
+								<div>
+				        	<form id="UPVOTE" action="/answers/<%=ans.id%>/upvote", method="post">
+				        		<input type="submit" value="UPVOTE"><%=ans.totalupvotes%>
+									</form>							
+			      		</div>
+							</li>
+							<li>
+								<div>
+					        <form action="/answers/<%=ans.id%>/downvote", method="post">
+					        	<input type="submit" value="DOWNVOTE"><%=ans.totaldownvotes%>
+									</form>
+					      </div>
+							</li>
+						</ul>
+	      	</dd>
+				</div>
+			</div>			
+		<% end %>
+	<% end %>	
+
+
+</div>

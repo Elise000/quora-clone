@@ -1,32 +1,35 @@
-<img id = "logo01" src="img/askies_logo_1.png" width="350" height="200">
+<div class="container">
+	<img id = "logo01" src="img/duck_duck_ask_logo1" width="500" height="300">
 
-<div id="content">
-	<div id="welcome">
-	  <h1>Welcome!</h1>
-	</div>
+	<div id="content">
+		<div id="welcome">
+		  <h1>Welcome!</h1>
+		</div>
 
-	<div id="signup">
-		<form method="post" action="/signup">
-			<h3>Please Sign In</h3>
-		  <input type="text" placeholder="Name" name="user[name]"></br>
-		  <input type="text" placeholder="Email" name="user[email]"></br>
-		  <input type="password" placeholder="Password" name="user[password]"></br>
-		  <input type="submit" value="Sign up">
-		</form>
+			<% if @error_msg %>
+				<h2><%= @error_msg %> </h2>
+			<% end %>
 
-		<% if @error_msg %>
-		<p><%= @error_msg %> </p>
-		<% end %>
-	</div>
+		<div id="signup">
+			<form method="post" action="/signup">
+				<h3>Please Sign Up</h3>
+			  <input type="text" placeholder="Name" name="user[name]"></br>
+			  <input type="text" placeholder="Email" name="user[email]"></br>
+			  <input type="password" placeholder="Password" name="user[password]"></br>
+			  <input type="submit" value="Sign up">
+			</form>
 
-	<div id='login'>
-		<form method="post" action="/login">
-			<h3>Please Log In</h3>
-		  <input type="text" placeholder="Name" name="user[name]"></br>
-		  <input type="text" placeholder="Email" name="user[email]"></br>
-		  <input type="password" placeholder="Password" name="user[password]"></br>
-		  <input type="submit" value="Login">
-		</form>
+		</div>
+
+		<div id='login'>
+			<form method="post" action="/login">
+				<h3>Please Log In</h3>
+			  <input type="text" placeholder="Name" name="user[name]"></br>
+			  <input type="text" placeholder="Email" name="user[email]"></br>
+			  <input type="password" placeholder="Password" name="user[password]"></br>
+			  <input type="submit" value="Login">
+			</form>
+		</div>
 	</div>
 </div>
 

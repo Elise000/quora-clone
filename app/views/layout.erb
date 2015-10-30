@@ -6,7 +6,6 @@
   <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
   <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
   <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-  <script src="/js/application.js"></script>
   <!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 
@@ -15,13 +14,22 @@
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+  <script src="/js/application.js"></script>
   <title>Askies v.1.0</title>
 </head>
 <body>
-  <%= yield %>
 
+  <% if logged_in? %>
+    <nav class="navbar navbar-inverse">
+    <img id = "logo01" src="img/duck_duck_ask_logo1" width="150" height="80">
+      <a href="/questions"><button>Home</button></a>
+      <a href="/users/<%=@user.id %>"><button>Profile</button></a>
+      <a href="/logout"><button>Logout</button></a>
+    </nav>
+  <%end%>
+  <%= yield %>
 </body>
 <footer>
 
 </footer>
-</html>c
+</html>

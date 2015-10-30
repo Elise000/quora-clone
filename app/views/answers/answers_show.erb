@@ -1,0 +1,22 @@
+<!-- 
+<h3><%=@question.description%></h3>
+
+<p>Answers</p>
+
+<% if @answers %>
+	<% @answers.each do |ans|%>
+		<div class="row">
+			<div class = "col-md-6">
+				<ul class="list-inline">
+					<li><%= ans.description %></li>
+						<li>
+							<p>User: <a href= "/users/<%=ans.user.id%>/questions"><%=ans.user.name%></a>
+							</p>
+						</li>
+				</ul>
+			</div>
+		</div>	
+	<%end%>
+<%end%>			
+ -->
+

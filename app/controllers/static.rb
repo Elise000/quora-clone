@@ -2,7 +2,7 @@
 
 get '/' do
 
-    erb :"static/index"
+    erb :"static/index", :layout => :'prelogin_layout'
   # end
 end
 

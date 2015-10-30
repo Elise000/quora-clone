@@ -1,5 +1,23 @@
-<h1>User's Questions here</h1>
+<div class="container">
+	<h1><%=@user.name%>'s Questions here</h1>
+	
 
-<% @questions.each do |q| %>
-	<p><%= q.description %></p>
-<%end%>
+	<% @questions.each do |q| %>
+		<div class="row">
+			<div class = "col-md-6">
+				<ul class="list-inline">
+					<li>
+						<a href= "/questions/<%=q.id%>"><%= q.description %></a>
+						<% if @user == current_user%>
+							<a href="/questions/<%=q.id%>/edit"><button>Edit</button></a>
+						<% end%>
+						<form method="post" action="/questions/<%=q.id%>">
+							<input type="hidden", name="_method", value="delete">
+						<input type="submit" value="Delete">
+						</form>
+					</li>
+				</ul>
+			</div>
+		</div>		
+	<%end%>
+</div>

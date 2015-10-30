@@ -1,15 +1,42 @@
-<% if @user %>
-	<a href='/users/<%= @user.id %>'><button>My Profile</button></a>	
-<% end %>
+<div class="container">
+<h1>DUCK DUCK ASK</h1>
 
-<form action="/logout", method="get">
-	<input type="submit" value="Logout">
-</form>
+	<p>Ask a question</p>
+	<form method="post" action="/questions">
+	  <input type="text" placeholder="Your Question Here" name="question[description]"></br>
+	  <input type="submit" value="Shoot">
+	</form>
 
+<h3>Recent Questions</h3>
 
-<h1>list questions_index here</h1>
-
-<% @questions.each do |q| %>
-	<p><%= q.description %></p>
-	<p>User: <%= q.user.name %></p>
-<%end%>
+	<% @questions.each do |q| %>
+		<div class="row">
+			<div class = "col-md-6">
+				<ul class="list-inline">
+					<li><a href= "/questions/<%=q.id%>"><%= q.description %></a></li>
+					<li>				
+						<p>User: <a href= "/users/<%=q.user.id%>/questions"><%= q.user.name %></a></p>
+					</li>
+				</ul>
+				<dd>
+					<ul class="list-inline">
+						<li>
+							<div>
+			        	<form id="UPVOTE" action="/questions/<%=q.id%>/upvote", method="post">
+			        		<input type="submit" value="UPVOTE"><%=q.totalupvotes%>
+								</form>							
+		      		</div>
+						</li>
+						<li>
+							<div>
+				        <form action="/questions/<%=q.id%>/downvote", method="post">
+				        	<input type="submit" value="DOWNVOTE"><%=q.totaldownvotes%>
+								</form>
+				      </div>
+						</li>
+					</ul>
+      	</dd>
+			</div>
+    </div>
+	<%end%>
+</div>

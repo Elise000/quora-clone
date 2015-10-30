@@ -3,6 +3,8 @@ require 'byebug'
 class User < ActiveRecord::Base
   has_many :questions
   has_many :answers
+  has_many :questions_votes
+  has_many :answers_votes
 
   # EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
 

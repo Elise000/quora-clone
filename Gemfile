@@ -18,7 +18,7 @@ gem 'sinatra-activerecord'
 
 # Adding Database elements
 gem 'pg'
-
+# gem 'better_errors'
 # Adding rake for management
 gem 'rake'
 

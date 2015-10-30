@@ -1,4 +1,8 @@
-<p>Welcome, <%= @user.name%></p>
+<div class="container">
+
+<h1>PROFILE</h1>
+
+<p>Welcome! <%= @user.name%></p>
 <!-- <p>Askies members since<=%@user.created_at%></p> -->
 <p>Ask a question</p>
 <form method="post" action="/questions">
@@ -10,3 +14,4 @@
 	<input type="submit" value="My Questions">
 </form>
 
+</div>

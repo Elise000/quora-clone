@@ -1,0 +1,9 @@
+<div class="container">
+<h1>Edit Your Question Here</h1>
+
+<form method="post" action="/questions/<%=@question.id%>/edit">
+	<input type="hidden", name="_method", value="put">
+	<input name="question[description]" value="<%=@question.description%>">
+	<input type="submit" value="Edit">
+</form>
+
