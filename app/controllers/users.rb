@@ -5,6 +5,12 @@ enable :sessions
 #   erb :"static/index"
 # end
 
+before do
+  path = ["/", "/signup", "/login", "/questions"]
+  pass if logged_in? || path.include?(request.path_info)
+  redirect "/"
+end
+
 post '/signup' do
   @user = User.new(params[:user])
 
